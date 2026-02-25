@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.braguia;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
