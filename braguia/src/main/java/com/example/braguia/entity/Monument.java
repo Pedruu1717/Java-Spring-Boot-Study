@@ -1,20 +1,25 @@
 package com.example.braguia;
 
-import org.jspecify.annotations.Nullable;
-
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+@Table(name = "monuments")
 public class Monument {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private @Nullable Integer id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
 
+    @Column(nullable = false, unique = true)
     private String name;
+    @Column(nullable = true, unique = false)
     private String description;
+    @Column(nullable = false, unique = false)
+    private String imgUrl;
 
 
     public Integer getId() {
@@ -39,5 +44,17 @@ public class Monument {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String toString() {
+        return id + "@" + name + "@" + description + "@" + imgUrl;
     }
 }
