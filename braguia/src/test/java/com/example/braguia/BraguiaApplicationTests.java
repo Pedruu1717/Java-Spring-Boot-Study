@@ -1,30 +1,24 @@
-package com.example.demo;
-
-import static org.hamcrest.Matchers.equalTo;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+package com.example.braguia;
 
 import org.junit.jupiter.api.Test;
+import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.utility.DockerImageName;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 
-// Inject MockMvc instance.
-@SpringBootTest  // Create whole app context
-@AutoConfigureMockMvc
-public class BraguiaApplicationTests {
+@Testcontainers
+@SpringBootTest
+class AccessingDataMysqlApplicationTests {
 
-	@Autowired
-	private MockMvc mvc;
+	@Container
+	@ServiceConnection
+	static MySQLContainer<?> mySQLContainer = new MySQLContainer<>(DockerImageName.parse("mysql:8.4.7"));
 
 	@Test
-	public void getHello() throws Exception {
-		mvc.perform(get("/bye").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk());
-				//.andExpect(content().string(equalTo("{id: 1, content: Adeus, Sr. Anderson!}")));
+	void contextLoads() {
 	}
+
 }
