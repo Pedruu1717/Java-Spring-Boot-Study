@@ -6,5 +6,6 @@ services:
       - 'MYSQL_PASSWORD=secret'
       - 'MYSQL_ROOT_PASSWORD=verysecret'
       - 'MYSQL_USER=myuser'
+      - 'MYSQL_ROOT_HOST=%'
     ports:
       - '3307:3306'
