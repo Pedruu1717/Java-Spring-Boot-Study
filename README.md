@@ -1,6 +1,3 @@
-# Braguia - Turistic guide of Braga on the web.
+# Spring Boot Website
 
-
-#### Developed by: Pedro Melo
-
-##### Made with Java and Spring Boot.
+### Mady by Pedro Melo
