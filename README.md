@@ -13,7 +13,7 @@ Allow customers to:
 ## 🧱 Basic system structure
 👤 Customers<br>
  &nbsp; |---------------> 💳 Accounts<br> 
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |-----------------------> 💸 Transactions
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |--------------> 💸 Transactions
 
 ---
 
