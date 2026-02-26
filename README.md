@@ -11,7 +11,9 @@ Allow customers to:
 
 
 ## 🧱 Basic system structure
-### 👤 Customers have 💳 Accounts and can make 💸 Transactions
+👤 Customers<br>
+ &nbsp; |---------------> 💳 Accounts<br> 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |-----------------------> 💸 Transactions
 
 ---
 
