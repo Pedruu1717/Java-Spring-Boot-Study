@@ -75,8 +75,6 @@ GET /accounts/{id}/statement
 * Testing with JUnit
 * Docker
 
----
-
 ## 🚀 @TODO in the future
 
 * Authentication with JWT
