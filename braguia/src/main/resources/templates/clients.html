@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Banco de Braga - Clientes</title>
+</head>
+<body>
+    <li th:each="client : ${clients}">
+        Id: <span th:text="${client.id}"></span>
+        Name: <span th:text="${client.name}"></span>
+        Email: <span th:text="${client.email}"></span>
+        Password: <span th:text="${client.password}"></span>
+        NIF: <span th:text="${client.nif}"></span>
+        NIC: <span th:text="${client.nic}"></span>
+    </li>
+</body>
+</html>

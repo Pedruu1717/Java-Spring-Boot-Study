@@ -5,30 +5,40 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.stereotype.Controller;
 
-import java.util.Optional;
-
 @Controller
 public class ViewController {
 
-    private final MonumentController monumentController;
+    private final ClientController clientController;
+    private final AccountController accountController;
+    private final TransactionController transactionController;
 
-    public ViewController(MonumentController monumentController) {
-        this.monumentController = monumentController;
+    public ViewController(ClientController clientController, AccountController accountController, TransactionController transactionController) {
+        this.clientController = clientController;
+        this.accountController = accountController;
+        this.transactionController = transactionController;
     }
 
-    @GetMapping("/monuments")
-    public String monuments(Model model) {
-        String monuments = monumentController.getAllMonuments();
-        model.addAttribute("monuments", monuments);
+    @GetMapping("/clients")
+    public String clients(Model model) {
+        Iterable<Client> clients = clientController.getAllClients();
+        model.addAttribute("clients", clients);
 
-        return "monuments";
+        return "clients";
     }
 
-    @GetMapping("/monuments/{name}")
-    public String monument(@RequestParam (name="name") String name, Model model) {
-        String monument = monumentController.getMonumentByName(name);
-        model.addAttribute("monument", monument);
+    @GetMapping("/accounts")
+    public String accounts(Model model) {
+        Iterable<Account> accounts = accountController.getAllAccounts();
+        model.addAttribute("accounts", accounts);
 
-        return "monument";
+        return "accounts";
+    }
+
+    @GetMapping("/transactions")
+    public String transactions(Model model) {
+        Iterable<Transaction> transactions = transactionController.getAllTransactions();
+        model.addAttribute("transactions", transactions);
+
+        return "transactions";
     }
 }
