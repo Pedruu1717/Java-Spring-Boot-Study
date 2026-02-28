@@ -90,9 +90,13 @@ public class TransactionService {
                         case TRANSFER:
                             if (!source_account.get().getId().equals(destination_account.get().getId())) {
                                 BigDecimal src_acc_balance_after_transaction = source_account.get().getBalance().subtract(value);
-                                BigDecimal dest_acc_balance_after_transaction = destination_account.get().getBalance().add(value);
-                                source_account.get().setBalance(src_acc_balance_after_transaction);
-                                destination_account.get().setBalance(dest_acc_balance_after_transaction);
+                                if (src_acc_balance_after_transaction.compareTo(BigDecimal.ZERO) >= 0) {
+                                    BigDecimal dest_acc_balance_after_transaction = destination_account.get().getBalance().add(value);
+                                    source_account.get().setBalance(src_acc_balance_after_transaction);
+                                    destination_account.get().setBalance(dest_acc_balance_after_transaction);
+                                } else {
+                                    throw new Exception("Could not transfer because source account balance is inferior than value to be transferred");
+                                }
                             } else {
                                 throw new Exception("Could not transfer because source account is the same as destination account");
                             }
