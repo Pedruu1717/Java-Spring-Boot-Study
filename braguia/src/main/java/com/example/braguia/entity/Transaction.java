@@ -1,5 +1,6 @@
-package com.example.braguia;
+package com.example.braguia.entity;
 
+import com.example.braguia.enums.TransactionType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
@@ -10,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDateTime;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 
 import java.math.BigDecimal;
 
@@ -21,8 +24,9 @@ public class Transaction {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = false)
-    private String type;
+    private TransactionType type;
 
     @Column(nullable = false, unique = false, precision = 19, scale = 2)
     private BigDecimal value;
@@ -50,11 +54,11 @@ public class Transaction {
         this.id = id;
     }
 
-    public String getType() {
+    public TransactionType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TransactionType type) {
         this.type = type;
     }
 

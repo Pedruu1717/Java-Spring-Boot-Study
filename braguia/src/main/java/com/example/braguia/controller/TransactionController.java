@@ -1,5 +1,8 @@
-package com.example.braguia;
+package com.example.braguia.controller;
 
+import com.example.braguia.entity.Transaction;
+import com.example.braguia.enums.TransactionType;
+import com.example.braguia.service.TransactionService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,18 +23,8 @@ public class TransactionController {
     }
 
     @PostMapping("/add")
-    public String addTransaction(@RequestParam String type, @RequestParam BigDecimal value, @RequestParam Long source_account_id, @RequestParam Long destination_account_id, @RequestParam Long client_id) {
-        String t = type.toUpperCase();
-        String tt;
-
-        if (t.equals(TransactionType.DEPOSIT.name()) || t.equals(TransactionType.WITHDRAWAL.name()) || t.equals(TransactionType.TRANSFER.name())) {
-            tt = t;
-        } else {
-            tt = "DEPOSIT";
-        }
-
-        boolean result = transactionService.addTransaction(tt, value, LocalDateTime.now(), source_account_id, destination_account_id, client_id);
-
+    public String addTransaction(@RequestParam TransactionType type, @RequestParam BigDecimal value, @RequestParam Long source_account_id, @RequestParam Long destination_account_id, @RequestParam Long client_id) {
+        boolean result = transactionService.addTransaction(type, value, LocalDateTime.now(), source_account_id, destination_account_id, client_id);
         if (result) { return "Saved"; }
         else { return "Could not add transaction"; }
     }

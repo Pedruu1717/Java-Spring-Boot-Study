@@ -1,4 +1,4 @@
-package com.example.braguia;
+package com.example.braguia.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -70,7 +70,7 @@ public class Client {
     }
 
     public void setPassword(String password) {
-        this.password = password;//passwordEncoder().encode(password);
+        this.password = password; // @TODO passwordEncoder().encode(password);
     }
 
     public String getNIC() {

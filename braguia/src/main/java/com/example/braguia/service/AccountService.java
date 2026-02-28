@@ -1,5 +1,10 @@
-package com.example.braguia;
+package com.example.braguia.service;
 
+import com.example.braguia.entity.Account;
+import com.example.braguia.entity.Client;
+import com.example.braguia.enums.AccountType;
+import com.example.braguia.repository.AccountRepository;
+import com.example.braguia.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,19 +41,22 @@ public class AccountService {
         return accountRepository.findAll(); // JSON or XML
     }
 
-    public boolean addAccount(String number, String agency, BigDecimal balance, String type, Long client_id) {
+    public boolean addAccount(String number, String agency, BigDecimal balance, AccountType type, Long client_id) {
         Optional<Client> client = clientRepository.findById(client_id);
-
-        try {
-            Account account = new Account();
-            account.setNumber(number);
-            account.setAgency(agency);
-            account.setBalance(balance);
-            account.setType(type);
-            account.setClient(client.get());
-            accountRepository.save(account);
-            return true;
-        } catch (Exception e) {
+        if (client.isPresent()) {
+            try {
+                Account account = new Account();
+                account.setNumber(number);
+                account.setAgency(agency);
+                account.setBalance(balance);
+                account.setType(type);
+                account.setClient(client.get());
+                accountRepository.save(account);
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
+        } else  {
             return false;
         }
     }
@@ -56,29 +64,10 @@ public class AccountService {
     public BigDecimal getAccountStatement(Long id) {
         Optional<Account> account = this.getAccountById(id);
         if (account.isPresent()) {
-            Account a = account.get();
-            return a.getBalance();
+            Account acc = account.get();
+            return acc.getBalance();
         } else {
             return new BigDecimal(0);
-        }
-    }
-
-    public void putAccountDeposit(Long id, BigDecimal value) {
-        Optional<Account> account = this.getAccountById(id);
-        if (account.isPresent() && value.compareTo(new BigDecimal(0)) > 0) {
-            Account a = account.get();
-            a.setBalance(a.getBalance().add(value));
-        }
-    }
-
-    public void putAccountWithdrawal(Long id, BigDecimal value) {
-        Optional<Account> account = this.getAccountById(id);
-        if (account.isPresent() && value.compareTo(new BigDecimal(0)) > 0) {
-            Account a = account.get();
-            BigDecimal balance = a.getBalance();
-            if (value.compareTo(balance) <= 0) {
-                a.setBalance(balance.subtract(value));
-            }
         }
     }
 }

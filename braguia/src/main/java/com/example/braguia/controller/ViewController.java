@@ -1,5 +1,8 @@
-package com.example.braguia;
+package com.example.braguia.controller;
 
+import com.example.braguia.entity.Account;
+import com.example.braguia.entity.Client;
+import com.example.braguia.entity.Transaction;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

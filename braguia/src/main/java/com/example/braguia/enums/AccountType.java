@@ -1,5 +1,6 @@
-package com.example.braguia;
+package com.example.braguia.enums;
 
 public enum AccountType {
-    CURRENT, SAVINGS
+    CURRENT,
+    SAVINGS
 }

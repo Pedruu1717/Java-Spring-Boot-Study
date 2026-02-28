@@ -1,5 +1,7 @@
-package com.example.braguia;
+package com.example.braguia.service;
 
+import com.example.braguia.entity.Client;
+import com.example.braguia.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

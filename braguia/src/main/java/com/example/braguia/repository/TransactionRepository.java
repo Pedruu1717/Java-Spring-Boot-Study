@@ -1,5 +1,7 @@
-package com.example.braguia;
+package com.example.braguia.repository;
 
+import com.example.braguia.entity.Transaction;
+import com.example.braguia.enums.TransactionType;
 import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 

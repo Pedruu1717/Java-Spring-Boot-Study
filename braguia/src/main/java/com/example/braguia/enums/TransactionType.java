@@ -1,5 +1,7 @@
-package com.example.braguia;
+package com.example.braguia.enums;
 
 public enum TransactionType {
-    DEPOSIT, WITHDRAWAL, TRANSFER
+    DEPOSIT,
+    WITHDRAWAL,
+    TRANSFER
 }

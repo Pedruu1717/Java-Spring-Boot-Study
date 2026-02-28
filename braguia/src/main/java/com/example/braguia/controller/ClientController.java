@@ -1,5 +1,7 @@
-package com.example.braguia;
+package com.example.braguia.controller;
 
+import com.example.braguia.entity.Client;
+import com.example.braguia.service.ClientService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -26,7 +26,7 @@ public class BankApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
-			System.out.println("Estes são os beans fornecidos pelo Spring Boot:");
+			System.out.println("These are the Beans provided by Spring Boot:");
 
 			String[] beans = ctx.getBeanDefinitionNames();
 			Arrays.sort(beans);
