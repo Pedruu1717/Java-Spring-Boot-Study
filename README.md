@@ -1,6 +1,6 @@
 ## 🎯 System objective
 
-Allow customers to:
+Allow clients to:
 
 * Create an account
 * Check their balance
@@ -11,7 +11,7 @@ Allow customers to:
 
 
 ## 🧱 Basic system structure
-👤 Customers<br>
+👤 Client<br>
  &nbsp; |---------------> 💳 Accounts<br> 
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |--------------> 💸 Transactions
 
@@ -19,40 +19,30 @@ Allow customers to:
 
 ## 🔌 API endpoints (REST example)
 
-### Create customer
+### Create client
 
 ```
-POST /customers
+POST /api/client/add
 ```
 
 ### Create account
 
 ```
-POST /accounts
+POST /api/account/add
 ```
 
-### Deposit
+### Deposit, Withdrawal and Transfer
 
-```
-POST /accounts/{id}/deposit
-```
 
-### Withdraw
-
+transfer_type = <b>DEPOSIT</b> or <b>WITHDRAWAL</b> or <b>TRANSFER</b>
 ```
-POST /accounts/{id}/withdrawal
+POST /api/transaction/add?type={transfer_type}
 ```
 
-### Transfer
+### View statements
 
 ```
-POST /accounts/transfer
-```
-
-### View statement
-
-```
-GET /accounts/{id}/statement
+GET /transactions
 ```
 
 ---
@@ -78,7 +68,7 @@ GET /accounts/{id}/statement
 ## 🚀 @TODO in the future
 
 * Authentication with JWT
-* Access control (customers only see their own accounts)
+* Access control (clients only see their own accounts)
 * Pagination in statements
 * Global exception handling
 * Audit logs
