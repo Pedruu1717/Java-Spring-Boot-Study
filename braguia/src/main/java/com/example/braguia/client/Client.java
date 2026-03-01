@@ -1,4 +1,4 @@
-package com.example.braguia.entity;
+package com.example.braguia.client;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

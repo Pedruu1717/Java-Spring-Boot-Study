@@ -1,12 +1,8 @@
-package com.example.braguia.controller;
+package com.example.braguia.account;
 
-import com.example.braguia.entity.Account;
-import com.example.braguia.enums.AccountType;
-import com.example.braguia.service.AccountService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 

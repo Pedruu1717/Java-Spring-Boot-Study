@@ -1,4 +1,4 @@
-package com.example.braguia.enums;
+package com.example.braguia.transaction;
 
 public enum TransactionType {
     DEPOSIT,

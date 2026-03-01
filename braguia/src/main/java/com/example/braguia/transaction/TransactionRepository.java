@@ -1,10 +1,7 @@
-package com.example.braguia.repository;
+package com.example.braguia.transaction;
 
-import com.example.braguia.entity.Transaction;
-import com.example.braguia.enums.TransactionType;
 import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
-
 
 public interface TransactionRepository extends CrudRepository<Transaction, Long> {
     public Optional<Transaction> findById(Long id);

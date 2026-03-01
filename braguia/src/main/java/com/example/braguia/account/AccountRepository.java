@@ -1,9 +1,7 @@
-package com.example.braguia.repository;
+package com.example.braguia.account;
 
-import com.example.braguia.entity.Account;
 import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
-
 
 public interface AccountRepository extends CrudRepository<Account, Long> {
     public Optional<Account> findById(Long id);

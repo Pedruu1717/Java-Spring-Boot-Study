@@ -1,4 +1,4 @@
-package com.example.braguia.enums;
+package com.example.braguia.account;
 
 public enum AccountType {
     CURRENT,

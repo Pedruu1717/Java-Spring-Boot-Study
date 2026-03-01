@@ -5,13 +5,26 @@
     <title>Banco de Braga - Contas</title>
 </head>
 <body>
-    <li th:each="account : ${accounts}">
-        Id: <span th:text="${account.id}"></span>
-        Name: <span th:text="${account.number}"></span>
-        Email: <span th:text="${account.agency}"></span>
-        Password: <span th:text="${account.balance}"></span>
-        NIF: <span th:text="${account.type}"></span>
-        NIC: <span th:text="${account.account_id}"></span>
-    </li>
+<h2>Contas</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Cliente</th>
+        <th>Agência</th>
+        <th>Número</th>
+        <th>Tipo</th>
+        <th>Saldo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="account : ${accounts}">
+        <td th:text="${account.client.getName()}"></td>
+        <td th:text="${account.agency}"></td>
+        <td th:text="${account.number}"></td>
+        <td th:text="${account.type}"></td>
+        <td th:text="${account.balance}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

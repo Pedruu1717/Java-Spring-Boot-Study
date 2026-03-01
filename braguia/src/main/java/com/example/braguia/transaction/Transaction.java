@@ -1,11 +1,11 @@
-package com.example.braguia.entity;
+package com.example.braguia.transaction;
 
-import com.example.braguia.enums.TransactionType;
+import com.example.braguia.account.Account;
+import com.example.braguia.client.Client;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

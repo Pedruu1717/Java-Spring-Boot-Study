@@ -5,14 +5,28 @@
     <title>Banco de Braga - Clientes</title>
 </head>
 <body>
-<li th:each="transaction : ${transactions}">
-    Id: <span th:text="${transaction.id}"></span>
-    Name: <span th:text="${transaction.type}"></span>
-    Email: <span th:text="${transaction.value}"></span>
-    Password: <span th:text="${transaction.date}"></span>
-    NIF: <span th:text="${transaction.source_account_id}"></span>
-    NIC: <span th:text="${transaction.destination_account_id}"></span>
-    Cliente: <span th:text="${transaction.client_id}"></span>
-</li>
+<h2>Transações</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Data</th>
+        <th>Tipo</th>
+        <th>Valor</th>
+        <th>Cliente</th>
+        <th>Conta de Origem</th>
+        <th>Conta de Destino</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="transaction : ${transactions}">
+        <td th:text="${transaction.date}"></td>
+        <td th:text="${transaction.type}"></td>
+        <td th:text="${transaction.value}"></td>
+        <td th:text="${transaction.client.getName()}"></td>
+        <td th:text="${transaction.getSourceAccount().getNumber()}"></td>
+        <td th:text="${transaction.getDestinationAccount().getNumber()}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

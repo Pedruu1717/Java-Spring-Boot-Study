@@ -1,10 +1,7 @@
-package com.example.braguia.service;
+package com.example.braguia.account;
 
-import com.example.braguia.entity.Account;
-import com.example.braguia.entity.Client;
-import com.example.braguia.enums.AccountType;
-import com.example.braguia.repository.AccountRepository;
-import com.example.braguia.repository.ClientRepository;
+import com.example.braguia.client.Client;
+import com.example.braguia.client.ClientRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

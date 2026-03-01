@@ -1,6 +1,5 @@
-package com.example.braguia.repository;
+package com.example.braguia.client;
 
-import com.example.braguia.entity.Client;
 import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
