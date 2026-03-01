@@ -57,7 +57,7 @@ GET /transactions
 
 ## 🛠 Technologies used
 
-* Java 17
+* Java
 * Spring Boot
 * Spring Data JPA
 * Hibernate
